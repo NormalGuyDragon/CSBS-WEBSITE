@@ -1,0 +1,413 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 40%, #f093fb 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    #logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .dept-logo {
+      width: 80px;
+      height: 80px;
+      background: transparent;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      
+    }
+
+    .dept-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #logo-section h1 {
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    #logo-section .subtitle {
+      color: #E5E7EB;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+
+    /* Navigation Styles */
+    nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      height: calc(100vh - 80px);
+      width: 250px;
+      background: linear-gradient(180deg, #667eea, #764ba2, #f093fb);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 0;
+      box-shadow: 4px 0 20px rgba(102, 126, 234, 0.2);
+      z-index: 999;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+      margin: 0.25rem 0;
+    }
+
+    nav a:hover, nav a.active {
+      background: rgba(255, 255, 255, 0.15);
+      border-left-color: #fbbf24;
+      transform: translateX(5px);
+    }
+
+    nav a::before {
+      content: '▶';
+      margin-right: 10px;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover::before, nav a.active::before {
+      opacity: 1;
+    }
+
+    /* Main Content */
+    main {
+      margin-left: 250px;
+      margin-top: 80px;
+      padding: 2rem;
+      min-height: calc(100vh - 80px);
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card Styles */
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(102, 126, 234, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h1, h2 {
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { 
+      color: #667eea; 
+      font-size: 1.5rem; 
+      margin-bottom: 1rem;
+    }
+
+    p, li {
+      line-height: 1.6;
+      color: #4B5563;
+      margin-bottom: 1rem;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+    }
+
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 1rem;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    tr:hover {
+      background: rgba(102, 126, 234, 0.05);
+    }
+
+    /* Semester Styles */
+    .semester {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-left: 5px solid #667eea;
+    }
+
+    .semester ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .semester li {
+      background: white;
+      margin: 0.5rem 0;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #f093fb;
+      transition: transform 0.2s ease;
+    }
+
+    .semester li:hover {
+      transform: translateX(5px);
+    }
+
+    /* Form Styles */
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #E5E7EB;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    form button {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-left: 250px;
+    }
+
+    /* Course Cards */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .course-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+      border-left: 5px solid #f093fb;
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Event Achievement Styles */
+    .event-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 147, 251, 0.1));
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+      border: 1px solid rgba(240, 147, 251, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.2);
+    }
+
+    .event-title {
+      color: #667eea;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-date {
+      color: #764ba2;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .winners-section {
+      margin-bottom: 1rem;
+    }
+
+    .winners-section h4 {
+      color: #f093fb;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .winner-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .winner-tag {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .photo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #f093fb, #ff6b9d);
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .photo-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: #667eea;
+      font-size: 1.1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      
+      nav.mobile-open {
+        transform: translateX(0);
+      }
+      
+      main, footer {
+        margin-left: 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+    .white {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: white !important;
+  background-clip: initial !important;
+  color: white !important;
+  font-size: large;
+}
