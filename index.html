@@ -2,369 +2,465 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSBS Department - PESCE Mandya</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #272727;
-      color: #747474;
-      margin: 0;
-      padding:0;
-      padding-left: 200px;
-      padding-top: 120px;
-
-         }
-  
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        z-index: 1000;
-      background-color: #1f1f1f;
-      color: #FFE400;
-      padding: 30px 0;
-      text-align: center;
-      font-size: 32px;
-      letter-spacing: 1.5px;
-           }
-       #H1 {
-        font-size: 20px;
-        color: #66FCF1;
-           }
-      #logo-section {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 20px;
-        background-color: #1F2833;
-        border-bottom: 2px solid #45A29E;
-            }
-
-        .dept-logo {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
-        border-radius: 8px;
-        }
-
-        #logo-section h1 {
-        color: #66FCF1;
-        font-size: 22px;
-        font-weight: 600;
-        }
-
-nav {
-  position: fixed;
-  top: 145px; /* Start below the header */
-  left: 0;
-  height: calc(100vh - 145px); /* Adjust height to fit below header */
-  width: 200px;
-  background-color: #1F2833;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  z-index: 999; /* Lower than header */
-}
-
-  
-nav a {
-    
-  display: block;
-  color: #66FCF1;
-  padding: 15px;
-  text-decoration: none;
-  font-weight: bold;
-  width: 100%;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    
-  background-color: #45A29E;
-  color: #0B0C10;
-}
-
-  
-    nav a {
-      margin: 0 20px;
-      text-decoration: none;
-      color: #14A76C;
-      font-weight: bold;
-      font-size: 18px;
-      transition: color 0.3s ease, transform 0.2s ease;
-    }
-  
-    nav a:hover {
-      color: #FF652F;
-      transform: scale(1.1);
-    }
-  
-    section {
-      padding: 40px 30px;
-      margin: 30px auto;
-      background-color: #1f1f1f;
-      border-left: 6px solid #FF652F;
-      border-radius: 10px;
-      max-width: 900px;
-      box-shadow: 0 0 20px rgba(255, 100, 47, 0.2);
-    }
-  
-    h2 {
-      color: #FFE400;
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      color: #747474;
-    }
-  
-    th {
-      background-color: #14A76C;
-      color: #272727;
-      font-weight: bold;
-    }
-  
-    td, th {
-      border: 1px solid #747474;
-      padding: 12px;
-      text-align: left;
-    }
-  
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      background-color: #272727;
-      color: #FFE400;
-      border: 1px solid #747474;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      font-size: 16px;
-    }
-  
-    form button {
-      background-color: #FF652F;
-      color: #272727;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-  
-    form button:hover {
-      background-color: #FFE400;
-      color: #272727;
-    }
-  
-    footer {
-      background-color: #1f1f1f;
-      color: #747474;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-
-    #subjects {
-  background-color: #212020;
-  padding: 30px;
-  color: #747474;
-}
-
-#subjects h2 {
-    color: #FFE400;
-    font-size: 28px;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.semester {
-  margin-bottom: 30px;
-  border-left: 5px solid #45A29E;
-  padding-left: 20px;
-}
-
-.semester h3 {
-  color: #45A29E;
-  font-size: 24px;
-}
-
-.semester ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-.semester li {
-  margin-bottom: 8px;
-}
-    
-  </style>
-  
-  
+<link rel="stylesheet" href="style.css">  
 </head>
 <body>
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
 
-    <header id="logo-section">
-        <img src="logo.png" alt="CSBS Department Logo" class="dept-logo">
-        <h4>Computer Science and Business Systems</h4>
-        <h4 id="H1">PESCE, MANDYA</h4>
-      
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#faculty">Faculty</a>
-      <a href="#courses">Courses</a>
-      <a href="#events">Events</a>
-      <a href="#achievements">Achievements</a>
-    </nav>
+  <header>
+    <div id="logo-section">
+      <div class="dept-logo">
+        <img src="logo.png" alt="CSBS Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-weight:bold; color:#667eea; font-size:18px;">CSBS</div>
+      </div>
+      <div>
+        <h1 class="white">Computer Science and Business Systems</h1>
+        <div class="subtitle">PESCE, MANDYA</div>
+      </div>
+    </div>
   </header>
 
-  <section id="home">
-    <h2>Home</h2>
-    <p>The Computer Science and Business Systems (CSBS) program at PESCE, launched in partnership with Tata Consultancy Services (TCS) in the academic year 2023-2024 with an intake of 60 students, aims to bridge the gap between technology and business. This interdisciplinary program prepares students for the multifaceted challenges of the digital age by integrating business principles with computer science education.</p>
-  </section>
+  <nav id="sidebar">
+    <a href="#" onclick="showPage('home')" class="nav-link active">Home</a>
+    <a href="#" onclick="showPage('faculty')" class="nav-link">Faculty</a>
+    <a href="#" onclick="showPage('courses')" class="nav-link">Courses</a>
+    <a href="#" onclick="showPage('subjects')" class="nav-link">Subjects</a>
+    <a href="#" onclick="showPage('events')" class="nav-link">Events</a>
+    <a href="#" onclick="showPage('achievements')" class="nav-link">Achievements</a>
+    <a href="#" onclick="showPage('contact')" class="nav-link">Contact</a>
+  </nav>
 
-  <section id="faculty">
-    <h2>Faculty</h2>
-    <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-      <thead>
-        <tr style="background-color: #e0e0e0;">
-          <th>Name</th>
-          <th>Designation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Dr. T.M. Geetanjali</td>
-          <td>Professor & Head of Department</td>
-        </tr>
-        <tr>
-          <td>Prof. Puttaswamy B S</td>
-          <td>Assistant Professor</td>
-        </tr>
-        <tr>
-          <td>Prof. Shilpa S</td>
-          <td>Assistant Professor</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-  
-
-  <section id="courses">
-    <h2>Courses</h2>
-    <ul>
-      <li>Data Structures</li>
-      <li>Business Communication</li>
-      <li>Web Development</li>
-      <li>Artificial Intelligence & Machine Learning Foundations</li>
-      <!-- Additional courses can be added here -->
-    </ul>
-  </section>
-
-  <section id="subjects">
-    <h2>Subjects</h2>
-    
-    <div class="semester">
-      <h3>1st Semester</h3>
-      <ul>
-        <li>P22MACS101 - Calculus, Differential Equations and Linear Algebra</li>
-        <li>P22PHCS102 - Applied Physics (IC)</li>
-        <li>P22ESCS103 - Principles of Programming using C(IC)</li>
-        <li>P22ESC1043 - Engg. Science Course-I </li>
-        <li>P22ETC1055 - Emerging Tech. Course-I (IoT)</li>
-        <li>P22ENG106 - Communicative English</li>
-        <li>P22SK107 - Samskruthika Kannada</li>
-        <li>P22BK107 - Balake Kannada</li>
-        <li>P22SFH108 - Scientific Foundation of Health</li>
-        <li>Rapid Prototyping, Integrated Mat Lab, Phy Lab, Programming Lab</li>
-      </ul>
+  <main>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+      <div class="card">
+        <h1>Welcome to CSBS Department</h1>
+        <p>The Computer Science and Business Systems (CSBS) program at PESCE, launched in partnership with Tata Consultancy Services (TCS) in the academic year 2023-2024 with an intake of 60 students, aims to bridge the gap between technology and business.</p>
+        <p>This interdisciplinary program prepares students for the multifaceted challenges of the digital age by integrating business principles with computer science education.</p>
+        
+        <div class="course-grid">
+          <div class="course-card">
+            <h3>🎯 Mission</h3>
+            <p>To provide comprehensive education that combines technical expertise with business acumen.</p>
+          </div>
+          <div class="course-card">
+            <h3>🚀 Vision</h3>
+            <p>To be a leading department in producing industry-ready professionals for the digital economy.</p>
+          </div>
+          <div class="course-card">
+            <h3>🤝 Industry Partnership</h3>
+            <p>Proud partnership with Tata Consultancy Services (TCS) for enhanced learning opportunities.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  
-    <div class="semester">
-      <h3>2nd Semester</h3>
-      <ul>
-        <li>P22MACS201 - Calculus and Numerical Methods</li>
-        <li>P22CHCS202 - Applied Chemistry (IC)</li>
-        <li>P22CED203 - Comp. Aided Engg. Drawing</li>
-        <li>P22ESC2043/2042 - Engg. Science Course-I </li>
-        <li>P22PLC2051 - Prog. Language Course-I [Web Programming]</li>
-        <li>P22ENG206 - Communicative English</li>
-        <li>P22ICQ207 - Indian Constitution</li>
-        <li>Innov. & Design Thinking, Social Innovation, Programming Labs</li>
-      </ul>
-    </div>
-  
-    <div class="semester">
-      <h3>3rd Semester</h3>
-      <ul>
-        <li>P22MACB301 - Discrete Mathematics</li>
-        <li>P22CB302 - Formal Language and Automata Theory</li>
-        <li>P22CB303 - Computer Organization and Architecture</li>
-        <li>P22CB304 - Software Engineering</li>
-        <li>P22CB305 - Data Structures & Algorithms</li>
-        <li>P22CB306 - Object Oriented Programming</li>
-        <li>P22HSMC307 - Employability Enhancement Skills  III</li>
-      </ul>
-    </div>
-  
-    <div class="semester">
-      <h3>4th Semester</h3>
-      <ul>
-        <li>P22MACB401 - Statistics and Probability</li>
-        <li>P22CB402 - Software Design with UML</li>
-        <li>P22CB403 - Operation Research</li>
-        <li>P22CB404 - Design and Analysis of Algorithms</li>
-        <li>P22CB405 - Database Management Systems</li>
-        <li>P22CB406 - Innovation, IP & Entrepreneurship</li>
-        <li>P22HSMC407B - Employability Skills  IV</li>
-        <li>P22INT408 - Internship  I</li>
-        <li>P22CBL410 - Design and Analysis of Algorithms Lab</li>
-        <li>P22CB411 - Business Communication & Value Science-II</li>
-      </ul>
-    </div>
-  </section>
-  
 
-  <section id="events">
-    <h2>Events</h2>
-    <p>Details about recent and upcoming events will be updated here.</p>
-    <!-- Event details can be dynamically updated -->
-  </section>
+    <!-- Faculty Page -->
+    <div id="faculty" class="page">
+      <div class="card">
+        <h1>Our Faculty</h1>
+        <p>Meet our dedicated team of experienced educators and industry professionals.</p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Specialization</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dr. T.M. Geetanjali</td>
+              <td>Professor & Head of Department</td>
+              <td>Computer Science & Business Systems</td>
+            </tr>
+            <tr>
+              <td>Prof. Puttaswamy B S</td>
+              <td>Assistant Professor</td>
+              <td>Software Engineering</td>
+            </tr>
+            <tr>
+              <td>Prof. Shilpa S</td>
+              <td>Assistant Professor</td>
+              <td>Data Science & Analytics</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-  <section id="achievements">
-    <h2>Achievements</h2>
-    <p>Information about the department's achievements will be showcased here.</p>
-    <!-- Achievement details can be dynamically updated -->
-  </section>
-  
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <label for="name">Name:</label><br>
-      <input type="text" id="name" name="name" required><br><br>
-  
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" required><br><br>
-  
-      <label for="message">Message:</label><br>
-      <textarea id="message" name="message" rows="5" required></textarea><br><br>
-  
-      <button type="submit">Submit</button>
-    </form>
-  </section>
+    <!-- Courses Page -->
+    <div id="courses" class="page">
+      <div class="card">
+        <h1>Our Courses</h1>
+        <p>Comprehensive curriculum designed to meet industry standards and future challenges.</p>
+        
+        <div class="course-grid">
+          <div class="course-card">
+            <h3>📊 Data Structures</h3>
+            <p>Learn efficient data organization and manipulation techniques essential for software development.</p>
+          </div>
+          <div class="course-card">
+            <h3>💼 Business Communication</h3>
+            <p>Develop professional communication skills crucial for business environments.</p>
+          </div>
+          <div class="course-card">
+            <h3>🌐 Web Development</h3>
+            <p>Master modern web technologies including HTML5, CSS3, JavaScript, and frameworks.</p>
+          </div>
+          <div class="course-card">
+            <h3>🤖 AI & Machine Learning</h3>
+            <p>Explore artificial intelligence foundations and machine learning applications.</p>
+          </div>
+          <div class="course-card">
+            <h3>💾 Database Management</h3>
+            <p>Understand database design, implementation, and management systems.</p>
+          </div>
+          <div class="course-card">
+            <h3>🔧 Software Engineering</h3>
+            <p>Learn systematic approaches to software development and project management.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subjects Page -->
+    <div id="subjects" class="page">
+      <div class="card">
+        <h1>Academic Curriculum</h1>
+        <p>Detailed semester-wise subject breakdown for the CSBS program.</p>
+        
+        <div class="semester">
+          <h3>1st Semester</h3>
+          <ul>
+            <li>P22MACS101 - Calculus, Differential Equations and Linear Algebra</li>
+            <li>P22PHCS102 - Applied Physics (IC)</li>
+            <li>P22ESCS103 - Principles of Programming using C(IC)</li>
+            <li>P22ESC1043 - Engineering Science Course-I</li>
+            <li>P22ETC1055 - Emerging Tech. Course-I (IoT)</li>
+            <li>P22ENG106 - Communicative English</li>
+            <li>P22SK107 - Samskruthika Kannada</li>
+            <li>P22BK107 - Balake Kannada</li>
+            <li>P22SFH108 - Scientific Foundation of Health</li>
+            <li>Rapid Prototyping, Integrated MatLab, Physics Lab, Programming Lab</li>
+          </ul>
+        </div>
+
+        <div class="semester">
+          <h3>2nd Semester</h3>
+          <ul>
+            <li>P22MACS201 - Calculus and Numerical Methods</li>
+            <li>P22CHCS202 - Applied Chemistry (IC)</li>
+            <li>P22CED203 - Computer Aided Engineering Drawing</li>
+            <li>P22ESC2043/2042 - Engineering Science Course-II</li>
+            <li>P22PLC2051 - Programming Language Course-I [Web Programming]</li>
+            <li>P22ENG206 - Communicative English</li>
+            <li>P22ICQ207 - Indian Constitution</li>
+            <li>Innovation & Design Thinking, Social Innovation, Programming Labs</li>
+          </ul>
+        </div>
+
+        <div class="semester">
+          <h3>3rd Semester</h3>
+          <ul>
+            <li>P22MACB301 - Discrete Mathematics</li>
+            <li>P22CB302 - Formal Language and Automata Theory</li>
+            <li>P22CB303 - Computer Organization and Architecture</li>
+            <li>P22CB304 - Software Engineering</li>
+            <li>P22CB305 - Data Structures & Algorithms</li>
+            <li>P22CB306 - Object Oriented Programming</li>
+            <li>P22HSMC307 - Employability Enhancement Skills III</li>
+          </ul>
+        </div>
+
+        <div class="semester">
+          <h3>4th Semester</h3>
+          <ul>
+            <li>P22MACB401 - Statistics and Probability</li>
+            <li>P22CB402 - Software Design with UML</li>
+            <li>P22CB403 - Operation Research</li>
+            <li>P22CB404 - Design and Analysis of Algorithms</li>
+            <li>P22CB405 - Database Management Systems</li>
+            <li>P22CB406 - Innovation, IP & Entrepreneurship</li>
+            <li>P22HSMC407B - Employability Skills IV</li>
+            <li>P22INT408 - Internship I</li>
+            <li>P22CBL410 - Design and Analysis of Algorithms Lab</li>
+            <li>P22CB411 - Business Communication & Value Science-II</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Events Page -->
+    <div id="events" class="page">
+      <div class="card">
+        <h1>Events & Activities</h1>
+        <p>Stay updated with our latest events, workshops, and activities.</p>
+        
+        <div class="course-grid">
+          <div class="course-card">
+            <h3>🎓 Academic Events</h3>
+
+          </div>
+          <div class="course-card">
+            <h3>💻 Technical Workshops</h3>
+            <p>Hands-on workshops on emerging technologies and industry tools.</p>
+          </div>
+          <div class="course-card">
+            <h3>🏆 Competitions</h3>
+            <p>Coding competitions, hackathons, and technical challenges.</p>
+          </div>
+          <div class="course-card">
+            <h3>🤝 Industry Interactions</h3>
+            <p>Industry visits, internship fairs, and placement drives.</p>
+          </div>
+        </div>
+        
+        <div class="semester">
+          <h3>Upcoming Events</h3>
+          <ul>
+            <li>Tech Fest 2025 - Annual technical festival</li>
+            <li>Industry Guest Lecture Series</li>
+            <li>Hackathon Competition</li>
+            <li>Career Guidance Workshop</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements Page -->
+    <div id="achievements" class="page">
+      <div class="card">
+        <h1>Event Achievements</h1>
+        <p>Celebrating the success and accomplishments of our students in various events and competitions.</p>
+        
+        <div id="achievements-container">
+          <div class="loading">Loading achievements...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+      <div class="card">
+        <h1>Contact Us</h1>
+        <p>Get in touch with us for inquiries, admissions, or collaborations.</p>
+        
+        <form onsubmit="handleFormSubmit(event)">
+          <input type="text" name="name" placeholder="Your Full Name" required>
+          <input type="email" name="email" placeholder="Your Email Address" required>
+          <input type="tel" name="phone" placeholder="Your Phone Number">
+          <input type="text" name="subject" placeholder="Subject" required>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+        
+        <div style="margin-top: 2rem;">
+          <h3>Department Information</h3>
+          <p><strong>Address:</strong> CSBS Department, PESCE, Mandya, Karnataka, India</p>
+          <p><strong>Email:</strong> csbs@pesce.ac.in</p>
+          <p><strong>Phone:</strong> +91-XXXX-XXXXXX</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <footer>
-    <p>&copy; 2025 CSBS Department, PESCE Mandya</p>
+    <p>&copy; 2025 CSBS Department, PESCE Mandya. All rights reserved.</p>
   </footer>
-  
 
+  <script>
+    // Event Achievements Data Structure
+    const eventAchievements = [
+      {
+        title: "TechFest 2024 - Coding Competition",
+        date: "2024-03-15",
+        winners: ["Ravi Kumar", "Priya Sharma", "Arun M"],
+        photoLink: "https://drive.google.com/drive/folders/1example1"
+      },
+      {
+        title: "Smart India Hackathon Regional Finals",
+        date: "2024-02-28",
+        winners: ["Team Alpha: Suresh, Kavya, Mohan", "Team Beta: Deepa, Raj, Sita"],
+        photoLink: "https://drive.google.com/drive/folders/1example2"
+      },
+      {
+        title: "CSBS Department Logo Design Contest",
+        date: "2024-12-16",
+        winners: ["Puneet Singh"],
+        photoLink: "https://drive.google.com/drive/folders/1example3"
+      },
+      {
+        title: "Slide Showdown Presentation Contest",
+        date: "2023-12-16",
+        winners: ["Puneet Singh","Krishna Raj Kurup", "Bharath N" , "Mallya S Murthy" ],
+        photoLink: "https://drive.google.com/drive/folders/1example4"
+      },
+      {
+        title: "Builverse Hackathon 2025, by Scaler School of Technology in collaboration with GeeksforGeeks and HackwithIndia",
+        date: "2025-06-25",
+        winners: ["Puneet Singh"],
+        photoLink: "https://drive.google.com/drive/folders/1example5"
+      }
+    ];
+
+    function loadAchievements() {
+      const container = document.getElementById('achievements-container');
+      
+      // Simulate loading delay
+      setTimeout(() => {
+        container.innerHTML = '';
+        
+        if (eventAchievements.length === 0) {
+          container.innerHTML = '<p style="text-align: center; color: #667eea;">No achievements to display yet.</p>';
+          return;
+        }
+        
+        eventAchievements.forEach(event => {
+          const eventCard = document.createElement('div');
+          eventCard.className = 'event-card';
+          
+          const winnersHtml = event.winners.map(winner => 
+            `<span class="winner-tag">${winner}</span>`
+          ).join('');
+          
+          eventCard.innerHTML = `
+            <div class="event-title">${event.title}</div>
+            <div class="event-date">📅 ${formatDate(event.date)}</div>
+            <div class="winners-section">
+              <h4>🏆 Winners:</h4>
+              <div class="winner-list">
+                ${winnersHtml}
+              </div>
+            </div>
+            <a href="${event.photoLink}" target="_blank" class="photo-link" rel="noopener noreferrer">
+              📸 View Event Photos
+            </a>
+          `;
+          
+          container.appendChild(eventCard);
+        });
+      }, 500);
+    }
+
+    function formatDate(dateString) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateString).toLocaleDateString('en-US', options);
+    }
+
+    function addNewAchievement(title, date, winners, photoLink) {
+      const newEvent = {
+        title: title,
+        date: date,
+        winners: Array.isArray(winners) ? winners : [winners],
+        photoLink: photoLink
+      };
+      
+      eventAchievements.unshift(newEvent);
+      
+      // Refresh the display if currently viewing achievements
+      if (document.getElementById('achievements').classList.contains('active')) {
+        loadAchievements();
+      }
+      
+      console.log('New achievement added:', newEvent);
+    }
+
+    function showPage(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+      
+      // Load achievements data when achievements page is accessed
+      if (pageId === 'achievements') {
+        loadAchievements();
+      }
+      
+      // Update navigation
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // Close mobile menu if open
+      document.getElementById('sidebar').classList.remove('mobile-open');
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('sidebar').classList.toggle('mobile-open');
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      event.target.reset();
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+        sidebar.classList.remove('mobile-open');
+      }
+    });
+
+    // Example function to demonstrate how to add new achievements programmatically
+    // Uncomment and modify as needed:
+    /*
+    function addSampleAchievement() {
+      addNewAchievement(
+        "New Coding Contest 2025",
+        "2025-01-15",
+        ["John Doe", "Jane Smith"],
+        "https://drive.google.com/drive/folders/1newexample"
+      );
+    }
+    */
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load achievements if achievements page is initially active
+      if (document.getElementById('achievements').classList.contains('active')) {
+        loadAchievements();
+      }
+    });
+
+    // Global function to easily add achievements from external sources
+    window.addAchievement = addNewAchievement;
+    
+    // Example of how to add achievements from external JSON file:
+    /*
+    async function loadAchievementsFromJSON(jsonUrl) {
+      try {
+        const response = await fetch(jsonUrl);
+        const data = await response.json();
+        
+        // Clear existing achievements
+        eventAchievements.length = 0;
+        
+        // Add new achievements
+        data.forEach(achievement => {
+          eventAchievements.push(achievement);
+        });
+        
+        // Refresh display if on achievements page
+        if (document.getElementById('achievements').classList.contains('active')) {
+          loadAchievements();
+        }
+        
+        console.log('Achievements loaded from JSON:', data.length, 'items');
+      } catch (error) {
+        console.error('Error loading achievements from JSON:', error);
+      }
+    }
+    */
+  </script>
 </body>
 </html>
